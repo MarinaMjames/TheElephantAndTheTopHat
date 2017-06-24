@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 //make app
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.NODE_PORT || 8081;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,7 +47,7 @@ var allTables = [
     bookedBy: null
 }]
 
-//allow user to book a table and input name 
+//allow user to book a table and input name
 var customers = {
     id: null,
     name: "test name"
@@ -64,7 +64,7 @@ app.get("/", function(req, res) {
 app.get("/api/tables", function(req, res){
 var currentTables ={
     booked: [],
-    open: []        
+    open: []
 }
     console.log("api.tables functioning");
      for (var i = 0; i < allTables.length; i++) {
@@ -76,7 +76,7 @@ var currentTables ={
          }
      }
      return res.json(currentTables);
-     
+
 });
 
 app.get("/reservation", function(req, res){
@@ -84,6 +84,16 @@ app.get("/reservation", function(req, res){
     res.sendFile(path.join(__dirname, "reservation.html"));
     var customers = req.body;
     console.log(customers);
+});
+
+app.get("/waitlist", function(req, res){
+	
+    var reservations = [];
+    var newResversation = req.body;
+    reservations.push(newResversation);
+    res.json(newResversation);
+
+    res.sendFile(path.join(__dirname, "waitingList.html"));
 });
 
 

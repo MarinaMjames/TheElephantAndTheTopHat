@@ -13,7 +13,7 @@
 <div class="tabs is-right">
   <ul>
     <li class="is-active"><a href="/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-    <li><a href="/api/tables">See WaitList</a></li>
+    <li><a href="/waitlist">See WaitList</a></li>
   </ul>
 </div>
 
@@ -60,7 +60,7 @@
 
 <!--Submit Button-->
 <p class="control">
-	<button class="button is-primary is-large" id="Reservation">Finalize Reservation</button>
+	<a href="/waitlist"><button class="button is-primary is-large" id="Reservation">Finalize Reservation</button></a>
 </p>
   </div>
 
@@ -76,35 +76,27 @@
    <script type="text/javascript">
     $("#Reservation").on("click", function(event) {
       event.preventDefault();
-
-      if ($(currentTables.open) === false){
-      var newReservation = {
-        bookedby: $("#name").val().trim(),
-        id: $("#id").val().trim(),
-        booked: true
-      };
-      // Question: What does this code do??
-      $.post("/api/tables", newReservation)
-      .done(function(data) {
-        console.log(data);
-        alert("Adding character...");
-      });
-    }
-    else {
-      var newWaitlist = {
-        bookedby: $("#name").val().trim(),
-        id: $("#id").val().trim(),
-        booked: true
-      };
-
-      $.post("/api/tables", newWaitlist)
-      .done(function(data) {
-        console.log(data);
-        alert("Adding character...");
-      });
-    }
-}
-
-
-
+      for (var i = 0; i < currentTables.open.length; i ++){
+        if ($.get(currentTables.open.length) > 0) {
+          var newReservation = {
+            bookedby: $("#name").val().trim(),
+            booked: true
+          };
+          $.post("/api/tables", newReservation)
+            .done(function(data) {
+              console.log(data);
+            }
+        }
+        else {
+          var newWaitlist = {
+            bookedby: $("#name").val().trim(),
+            booked: true
+          };
+            $.post("/api/tables", newWaitlist)
+              .done(function(data) {
+                console.log(data);
+              });
+        }
+    };
+    });
     </script>
