@@ -76,7 +76,7 @@
     $("#Reservation").on("click", function(event) {
       event.preventDefault();
 
-      if (currentTables. <= 5){
+      if ($(currentTables.open) === false){
       var newReservation = {
         bookedby: $("#name").val().trim(),
         id: $("#id").val().trim(),
