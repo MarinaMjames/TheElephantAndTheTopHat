@@ -86,6 +86,14 @@ app.get("/reservation", function(req, res){
     console.log(customers);
 });
 
+app.post("/waitlist", function(req, res){
+	console.log("waitlist");
+	var reservations = [];
+	var newResversation = req.body;
+	console.log(newResversation);
+	reservations.push(newResversation.bookedBy);
+	res.json(newResversation);
+});
 
 
 app.listen(PORT, function() {
