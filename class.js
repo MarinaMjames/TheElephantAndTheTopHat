@@ -59,6 +59,7 @@ var customers = {
 //SERVER PATHS
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "home.html"));
+<<<<<<< HEAD
 }); //this works
 
 app.get("/api/tables", function(req, res){
@@ -87,6 +88,38 @@ app.get("/reservation", function(req, res){
     var customers = req.body;
     console.log(customers);
 });
+=======
+}); //this works 
+
+app.get("/api/tables", function(req, res){
+	console.log("api.tables");
+	 for (var i = 0; i < allTables.length-1; i++) {
+	 	if(allTables[i].booked === false){
+	 		return res.json(allTables[i]);
+	 	}
+	 	else{
+	 		return res.json(allTables[i].id + "is booked");
+	 	}
+	 }
+}); //not linking 
+
+app.post("/reservation", function(req, res){
+	var customers = req.body;
+	console.log(customers);
+
+	 for (var i = 0; i < allTables.length; i++) {
+	 	if(allTables[i].booked === false){
+	 		return res.json(allTables[i]);
+	 		var openTable = allTables[i];
+
+	 	}
+	 	else{
+	 		return res.json(allTables[i].id + "is booked");
+	 	}
+	 	openTable.bookedBy = customers.id;
+	 }
+}); //not linking
+>>>>>>> 6cb6b5aa0515b381f741f36ef132330c8ea2d7c4
 
 
 
