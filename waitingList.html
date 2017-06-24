@@ -4,19 +4,30 @@
     <title>The Elephant and the Top Hat</title>
     <!--Bulma CSS Link-->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css">
+    <script src="https://use.fontawesome.com/9639f71805.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
+
+  <div class="tabs is-right">
+  <ul>
+    <li class="is-active"><a href="/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+    <li><a href="/reservation">Make A Reservation</a></li>
+  </ul>
+</div>
     <!-- Jumbotron-->
     <section class="hero is-primary is-medium">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
+          <img src="Elephant.png" width="40px">
+
           The Elephant and the Top Hat
           </h1>
           <h2 class="subtitle">
           Experience the best Artisanal Cheese Around!
           </h2>
-          <a href="reservation.html" class="button is-dark is-large">Make a Reservation</a>
+      
         </div>
       </div>
     </section>
@@ -33,7 +44,7 @@
       <table class="table is-striped is-bordered" id="reservations">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Reservations</th>
     </tr>
   </thead>
 
@@ -57,6 +68,48 @@
         </div>
       </div>
 
+      <br><br>
+
+      <div class="columns">
+      <div class="column">
+      </div>
+
+
+
+
+    <!-- Table Data-->
+      <div class="column is-three-quarters is-centered">
+      <table class="table is-striped is-bordered" id="waitingList">
+  <thead>
+    <tr>
+      <th>Wait List</th>
+    </tr>
+  </thead>
+
+
+<tbody>
+    <tr class="waitTableData">
+      <td>Max
+      </td>
+       </tr>
+    </tbody>
+
+
+  </table>
+
+
+    </div>
+
+    <!-- Right column-->
+
+        <div class="column">
+        </div>
+      </div>
+
 
       </body>
     </html>
+
+
+
+ 
